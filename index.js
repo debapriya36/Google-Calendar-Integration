@@ -144,6 +144,24 @@ app.get('/schedule_calendar_event', async (req, res) => {
     }
 });
 
+app.get('/', async (req , res) => {
+    try {
+        const response = await calendar.events.list({
+            calendarId: 'primary', // Replace 'primary' with the calendar ID you want to fetch events from
+            timeMin: (new Date()).toISOString(), // Fetch events starting from current time
+            maxResults: 10, // Maximum number of events to fetch
+            singleEvents: true,
+            orderBy: 'startTime',
+        });
+        const events = response.data.items;
+        res.json({ events });
+    } catch (error) {
+        console.error('Error fetching events:', error);
+        res.status(500).json({ error: 'Failed to fetch events' });
+    }
+
+});
+
 
 app.get('/', (_, res) => {
     res.json({
