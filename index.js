@@ -58,44 +58,6 @@ const calendar = google.calendar(
 const dayjs = require('dayjs');
 const { v4: uuidv4 } = require('uuid');
 
-// app.get('/schedule_calendar_event', (req, res) => {
-//     // create a dummy event in ISO timezone
-//     let event = {
-//         summary: "event + meet",
-//         description: "test event + meet",
-//         start: {
-//             dateTime: dayjs().add(1, 'day').toISOString(),
-//             timeZone: "Asia/Kolkata"
-//         },
-//         end: {
-//             dateTime: dayjs().add(1, 'day').add(5, 'hour').toISOString(),
-//             timeZone: "Asia/Kolkata"
-//         },
-//         conferenceData: {
-//             createRequest: {
-//                 requestId: uuidv4(),
-//             }
-//         },
-//         attendees: [
-//             { 'email': 'rhitambanerjee18@gmail.com' }
-//         ],
-//     };
-
-//     console.log({ event });
-
-//     calendar.events.insert(
-//         {
-//             calendarId: "primary",
-//             resource: event
-//         }
-//     );
-
-//     res.json({
-//         msg: "Successfully created an event in the calendar + google meet link added"
-//     });
-// });
-
-
 app.get('/schedule_calendar_event', async (req, res) => {
     try {
         // Create a dummy event in ISO timezone
