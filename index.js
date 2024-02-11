@@ -112,7 +112,6 @@ app.get('/schedule_calendar_event', async (req, res) => {
             },
             attendees: [
                 // { 'email': 'debapriya@levitation.co.in' },
-                // { 'email' : 'piyasanandy19.7.1999@gmail.com'}
             ],
             conferenceData: {
                 createRequest: {
