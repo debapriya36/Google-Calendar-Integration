@@ -144,7 +144,7 @@ app.get('/schedule_calendar_event', async (req, res) => {
     }
 });
 
-app.get('/', async (req , res) => {
+app.get('/getEvents', async (req , res) => {
     try {
         const response = await calendar.events.list({
             calendarId: 'primary', // Replace 'primary' with the calendar ID you want to fetch events from
@@ -159,7 +159,6 @@ app.get('/', async (req , res) => {
         console.error('Error fetching events:', error);
         res.status(500).json({ error: 'Failed to fetch events' });
     }
-
 });
 
 
